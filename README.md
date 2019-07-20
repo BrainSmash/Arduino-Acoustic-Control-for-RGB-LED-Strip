@@ -3,7 +3,7 @@ Acoustic Control for RGB LED Strips in Arduino using a Sound sensor and a RGB Le
 
  ******** BRAIN SMASH ******** 
  
- ****** AUTHOR: DAEDALUS   6/2019 ******
+ ****** AUTHOR: DAEDALUS   7/2019 ******
  
  **** Github.com/BrainSmash ****
  
