@@ -11,13 +11,15 @@
 /*
  *  Acoustic Control for RGB LED Strips
  *  
- *  Change the color of a LED strip based on the signal value that is received from a Sound sensor,
- *  the signal is filtered using a First Order Low pass IIR Digital filter with a cutoff frequency 
- *  of 900Hz the filtered signal is compared with a threshold value that is used to determine
- *  which color will be displyed based on the frequency of the sound catched by the sensor, 
- *  the frequency of the sound that is sensed by the sensor represent the voltage output of the sensor,
- *  low frequency or intensity equal 1023 bits of output of the sensor,
- *  high frequency or intensity equal close to 0 bits of output of the sensor.
+ * How to build your own Music Visualizer with Arduino for RGB LED Strips 
+ * This is a video that teaches you how to change the color of a LED strip 
+ * based on the value that is obtianed from a Sound sensor, the signal is 
+ * filtered using a First Order Low pass IIR Digital filter with a cutoff 
+ * frequency of 900Hz the filtered signal is compared with several threshold 
+ * values that are used to determine which color will be displyed based on the 
+ * frequency of the sound that is sensed by the sensor, low frequency sounds 
+ * (barely audible) are displayed as Blue in the LED Strip, all the way to 
+ * high frequency sounds (highly audible) wich are displayed as Red in the strip.
  *  
  *  MainFunction() 
  *  This method read the value of the output of the Sound sensor with "sensorValue" 
