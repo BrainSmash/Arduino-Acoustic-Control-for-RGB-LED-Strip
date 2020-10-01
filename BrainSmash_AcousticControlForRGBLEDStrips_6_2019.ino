@@ -43,6 +43,18 @@
  *  that we want; Search on Google RGB Color Wheel to help you learn how colors are created. 
  */ 
 
+/*
+ * VERSION 1.2
+ * Changed the order of numbers in filteredSignalValues array
+ * from highest to lowest was reversed and changed 
+ * the equation from the sensorValue variable, 
+ * from 1023 - analogRead to just analogRead to make it
+ * easier to read.
+ * Sound Sensor outputs 5V or 1023 when read as input from the Arduino
+ * when there is no sound and with a high sound it ouputs 0v
+ * inverse logic.
+ */
+
 #define Rpin 11
 #define Gpin 10
 #define Bpin 9
@@ -50,7 +62,7 @@
 #define sensorPin A0
 
 float sensorValue = 0, filteredSignal = 0,
-      filteredSignalValues[] = {0.4, 0.9, 1.3, 1.7, 2.1, 2.4, 2.7, 3.1, 3.4};
+    filteredSignalValues[] = {3.4, 3.1, 2.7, 2.4, 2.1, 1.7, 1.3, 0.9, 0.4};
 
 void setup () {
 
@@ -64,7 +76,7 @@ void loop () {
 
 void MainFunction() {
 
-  sensorValue = (float)(1023.0 - analogRead(sensorPin)) * (5.0 / 1024.0);
+  sensorValue = (float) analogRead(sensorPin) * (5.0 / 1024.0);
 
   FilterSignal(sensorValue);
 
@@ -82,37 +94,34 @@ void FilterSignal(float sensorSignal) {
 
 void CompareSignalFiltered(float filteredSignal) {
 
-  if (filteredSignal < filteredSignalValues[0]) {
+  if (filteredSignal > filteredSignalValues[0]) {
     RGBColor(0, 0, 255);
     Serial.println("Blue");
-  } else if (filteredSignal >= filteredSignalValues[0] && filteredSignal < filteredSignalValues[1]) {
+  } else if (filteredSignal <= filteredSignalValues[0] && filteredSignal > filteredSignalValues[1]) {
     Serial.println("Azure");
     RGBColor(0, 255, 255);
-  } else if (filteredSignal >= filteredSignalValues[1] && filteredSignal < filteredSignalValues[2]) {
+  } else if (filteredSignal <= filteredSignalValues[1] && filteredSignal > filteredSignalValues[2]) {
     RGBColor(0, 127, 255);
     Serial.println("Cyan");
-  } else if (filteredSignal >= filteredSignalValues[2] && filteredSignal < filteredSignalValues[3]) {
+  } else if (filteredSignal <= filteredSignalValues[2] && filteredSignal > filteredSignalValues[3]) {
     RGBColor(0, 255, 127);
     Serial.println("Aqua marine");
-  } else if (filteredSignal >= filteredSignalValues[3] && filteredSignal < filteredSignalValues[4]) {
+  } else if (filteredSignal <= filteredSignalValues[3] && filteredSignal > filteredSignalValues[4]) {
     RGBColor(0, 255, 0);
     Serial.println("Green");
-  } else if (filteredSignal >= filteredSignalValues[4] && filteredSignal < filteredSignalValues[5]) {
-    RGBColor(127, 255, 0);
-    Serial.println("Chartreuse");
-  } else if (filteredSignal >= filteredSignalValues[5] && filteredSignal < filteredSignalValues[6]) {
+  } else if (filteredSignal <= filteredSignalValues[4] && filteredSignal > filteredSignalValues[5]) {
     RGBColor(255, 255, 0);
     Serial.println("Yellow");
-  } else if (filteredSignal >= filteredSignalValues[6] && filteredSignal < filteredSignalValues[7]) {
+  } else if (filteredSignal <= filteredSignalValues[5] && filteredSignal > filteredSignalValues[6]) {
     RGBColor(255, 0, 255);
     Serial.println("Magenta");
-  } else if (filteredSignal >= filteredSignalValues[7] && filteredSignal < filteredSignalValues[8]) {
+  } else if (filteredSignal <= filteredSignalValues[6] && filteredSignal > filteredSignalValues[7]) {
     RGBColor(255, 0, 127);
     Serial.println("Rose");
-  } else if (filteredSignal >= filteredSignalValues[8] && filteredSignal < filteredSignalValues[9]) {
+  } else if (filteredSignal <= filteredSignalValues[7] && filteredSignal > filteredSignalValues[8]) {
     RGBColor(255, 127, 0);
     Serial.println("Orange");
-  } else if (filteredSignal >= filteredSignalValues[9]) {
+  } else if (filteredSignal <= filteredSignalValues[8]) {
     RGBColor(255, 0, 0);
     Serial.println("Red");
   } else {
@@ -128,4 +137,4 @@ void RGBColor(int Rcolor, int Gcolor, int Bcolor) {
   analogWrite(Bpin, Bcolor);
 
   delay(delayLEDS);
-}
+} 
