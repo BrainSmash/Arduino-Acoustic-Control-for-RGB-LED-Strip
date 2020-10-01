@@ -45,14 +45,11 @@
 
 /*
  * VERSION 1.2
- * Changed the order of numbers in filteredSignalValues array
- * from highest to lowest was reversed and changed 
- * the equation from the sensorValue variable, 
- * from 1023 - analogRead to just analogRead to make it
+ * Changed the order of numbers in "filteredSignalValues" array from highest to lowest, was reversed and changed 
+ * the equation from the "sensorValue" variable, from 1023 - "analogRead(A0)" to just "analogRead(A0)" to make it
  * easier to read.
- * Sound Sensor outputs 5V or 1023 when read as input from the Arduino
- * when there is no sound and with a high sound it ouputs 0v
- * inverse logic.
+ * Sound Sensor outputs 5V or 1023 when read as input from the Arduino when there is no sound and with a high sound it ouputs 0v
+ * The Sensor has inverse output logic.
  */
 
 #define Rpin 11
