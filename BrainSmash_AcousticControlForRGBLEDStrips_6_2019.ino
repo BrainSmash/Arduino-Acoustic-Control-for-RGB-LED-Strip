@@ -3,7 +3,7 @@
 * ****** AUTHOR: DAEDALUS   7/2019 ******
 * **** Visit us at: Youtube.com/BrainSmash ****
 * ** Github.com/BrainSmash **
-* You may use or modify this code for any and all of your projects whitout any restrictions
+* You may use or modify this code for any and all of your projects without any restrictions
 * If you use any fragment of this code we will be happy if you could drop us a message ;)
 * Brain Smash nor the Author are hold responsible for any misuse partially or complete of this code 
 */
