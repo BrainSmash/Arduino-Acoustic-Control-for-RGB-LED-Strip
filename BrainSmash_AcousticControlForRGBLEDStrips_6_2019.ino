@@ -16,10 +16,10 @@
  * based on the value that is obtianed from a Sound sensor, the signal is 
  * filtered using a First Order Low pass IIR Digital filter with a cutoff 
  * frequency of 900Hz the filtered signal is compared with several threshold 
- * values that are used to determine which color will be displyed based on the 
+ * values that are used to determine which color will be displayed based on the 
  * frequency of the sound that is sensed by the sensor, low frequency sounds 
  * (barely audible) are displayed as Blue in the LED Strip, all the way to 
- * high frequency sounds (highly audible) wich are displayed as Red in the strip.
+ * high frequency sounds (highly audible) which are displayed as Red in the strip.
  *  
  *  MainFunction() 
  *  This method read the value of the output of the Sound sensor with "sensorValue" 
